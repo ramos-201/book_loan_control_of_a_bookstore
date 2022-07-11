@@ -26,7 +26,7 @@ class ConsoleInput:
                 response = int(self.read_str())
                 break
             except ValueError:
-                ConsoleOutput("Enter a (int) formatted value.").write_error()
+                ConsoleOutput(text="Enter a (int) formatted value.").write_error()
 
         return response
 
@@ -37,6 +37,6 @@ class ConsoleInput:
             if response > 0:
                 break
             else:
-                ConsoleOutput("Please enter a number greater than 0").write_error()
+                ConsoleOutput(text="Please enter a number greater than 0").write_error()
 
         return response

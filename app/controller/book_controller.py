@@ -13,11 +13,26 @@ def create_book(title: str, description: str, amount: int) -> uuid:
     return book.id
 
 
-def filter_book(id: uuid) -> List[dict]:
+def get_books(**kwargs) -> List[dict]:
     repository = BookRepository()
-    books = repository.filter(id=id)
-    response_books = []
 
+    if kwargs:
+        data_filter = {}
+        for key, value in kwargs.items():
+            data_filter[key] = value
+
+        books = repository.filter(data=data_filter)
+        response_books = _get_list_books(books=books)
+
+    else:
+        books = repository.get_books()
+        response_books = _get_list_books(books=books)
+
+    return response_books
+
+
+def _get_list_books(books):
+    response_books = []
     for book in books:
         response_books.append(book.to_dict())
 
