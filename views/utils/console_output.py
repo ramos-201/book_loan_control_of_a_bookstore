@@ -6,5 +6,5 @@ class ConsoleOutput:
     def write(self) -> None:
         print(self._text)
 
-    def write_error(self):
+    def write_error(self) -> None:
         print(f"ERROR!: {self._text}")

@@ -26,6 +26,7 @@ class Menu:
             self._menu_options[menu_option - 1].run()
 
     def _show_menu_options(self) -> None:
+        ConsoleOutput(text=f"{self._description}").write()
         for i, value in enumerate(self._menu_options):
             ConsoleOutput(text=f'{i + 1} :  {value.description}').write()
 
@@ -35,9 +36,9 @@ class Menu:
             if response_option <= len(self._menu_options):
                 break
             else:
-                ConsoleOutput("Enter a valid value").write_error()
+                ConsoleOutput(text="Enter a valid value").write_error()
 
         return response_option
 
-    def _exit_menu_option(self, description: str):
+    def _exit_menu_option(self, description: str) -> None:
         self._exit_option = ExitOption(description=description)
