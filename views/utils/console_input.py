@@ -1,4 +1,7 @@
-class Console:
+from views.utils.console_output import ConsoleOutput
+
+
+class ConsoleInput:
 
     def __init__(self, text: str):
         self._text = text
@@ -13,7 +16,7 @@ class Console:
             if len(response) > 0:
                 break
             else:
-                print("ERROR! This field is required, please enter a text")
+                ConsoleOutput(text="This field is required, please enter a text").write_error()
 
         return response
 
@@ -23,7 +26,7 @@ class Console:
                 response = int(self.read_str())
                 break
             except ValueError:
-                print("ERROR! Enter a (int) formatted value.")
+                ConsoleOutput("Enter a (int) formatted value.").write_error()
 
         return response
 
@@ -34,6 +37,6 @@ class Console:
             if response > 0:
                 break
             else:
-                print("ERROR! Please enter a number greater than 0")
+                ConsoleOutput("Please enter a number greater than 0").write_error()
 
         return response

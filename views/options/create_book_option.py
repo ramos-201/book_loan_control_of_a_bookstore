@@ -1,7 +1,7 @@
 from app.controller.book_controller import create_book, filter_book
 from views.options.option import Option
 from views.options.show_book_option import ShowBookOption
-from views.utils.console import Console
+from views.utils.console_input import ConsoleInput
 
 
 class CreateBookOption(Option):
@@ -10,9 +10,9 @@ class CreateBookOption(Option):
         super().__init__(description="Create Book")
 
     def run(self) -> None:
-        title = Console(text="Title of the book: ").read_str_is_required()
-        description = Console(text="Description of the book: ").read_str_is_required()
-        amount = Console(text="Number of books to enter: ").read_int_is_positive()
+        title = ConsoleInput(text="Title of the book: ").read_str_is_required()
+        description = ConsoleInput(text="Description of the book: ").read_str_is_required()
+        amount = ConsoleInput(text="Number of books to enter: ").read_int_is_positive()
 
         created_book = create_book(title=title, description=description, amount=amount)
 

@@ -3,7 +3,8 @@ from typing import List
 
 from views.options.exit_option import ExitOption
 from views.options.option import Option
-from views.utils.console import Console
+from views.utils.console_input import ConsoleInput
+from views.utils.console_output import ConsoleOutput
 
 
 class Menu:
@@ -26,15 +27,15 @@ class Menu:
 
     def _show_menu_options(self) -> None:
         for i, value in enumerate(self._menu_options):
-            print(f'{i + 1} :  {value.description}')
+            ConsoleOutput(text=f'{i + 1} :  {value.description}').write()
 
     def _get_menu_option(self) -> int:
         while True:
-            response_option = Console(text='Write a menu option (int): ').read_int_is_positive()
+            response_option = ConsoleInput(text='Write a menu option (int): ').read_int_is_positive()
             if response_option <= len(self._menu_options):
                 break
             else:
-                print("ERROR!, Enter a valid value")
+                ConsoleOutput("Enter a valid value").write_error()
 
         return response_option
 
