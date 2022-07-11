@@ -16,6 +16,7 @@ class CreateBookOption(Option):
 
         created_book = create_book(title=title, description=description, amount=amount)
 
-        data_book = filter_book(id_book=created_book)
-        show_book_option = ShowBookOption(option="show_book", data=data_book)
+        books = filter_book(id=created_book)
+
+        show_book_option = ShowBookOption(data=books)
         show_book_option.run()
