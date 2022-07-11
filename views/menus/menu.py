@@ -1,8 +1,9 @@
 from abc import abstractmethod
 from typing import List
 
-from views.console.options.exit_option import ExitOption
-from views.console.options.option import Option
+from views.options.exit_option import ExitOption
+from views.options.option import Option
+from views.utils.console import Console
 
 
 class Menu:
@@ -29,14 +30,11 @@ class Menu:
 
     def _get_menu_option(self) -> int:
         while True:
-            try:
-                response_option = int(input('Write option (number): '))
-            except ValueError:
-                print("Digite un valor valido")
+            response_option = Console(text='Write a menu option (int): ').read_int_is_positive()
+            if response_option <= len(self._menu_options):
+                break
             else:
-                if 0 <= response_option <= len(self._menu_options):
-                    break
-                print("Opcion no es valida")
+                print("ERROR!, Enter a valid value")
 
         return response_option
 

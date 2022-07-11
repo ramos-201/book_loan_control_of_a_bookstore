@@ -1,5 +1,5 @@
-from views.console.menus.book_menu import BookMenu
-from views.console.options.option import Option
+from views.menus.book_menu import BookMenu
+from views.options.option import Option
 
 
 class BookMenuOption(Option):

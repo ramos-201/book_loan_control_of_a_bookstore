@@ -1,4 +1,4 @@
-from views.console.options.option import Option
+from views.options.option import Option
 
 
 class UpdateBookOption(Option):

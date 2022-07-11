@@ -1,11 +1,11 @@
 from typing import List
 
-from views.console.options.create_book_option import CreateBookOption
-from views.console.options.delete_book_option import DeleteBookOption
-from views.console.options.show_book_option import ShowBookOption
-from views.console.options.update_book_option import UpdateBookOption
-from views.console.menus.menu import Menu
-from views.console.options.option import Option
+from views.options.create_book_option import CreateBookOption
+from views.options.delete_book_option import DeleteBookOption
+from views.options.show_book_option import ShowBookOption
+from views.options.update_book_option import UpdateBookOption
+from views.menus.menu import Menu
+from views.options.option import Option
 
 
 class BookMenu(Menu):
