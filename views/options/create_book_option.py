@@ -1,4 +1,4 @@
-from app.controller.book_controller import create_book, get_books
+from app.controller.book_controller import BookController
 from views.options.option import Option
 from views.options.show_book_option import ShowBookOption
 from views.utils.console_input import ConsoleInput
@@ -16,8 +16,10 @@ class CreateBookOption(Option):
         title = ConsoleInput(text='Title of the book: ').read_str_is_required()
         description = ConsoleInput(text='Description of the book: ').read_str_is_required()
         amount = ConsoleInput(text='Number of books to enter: ').read_int_is_positive()
-        created_book = create_book(title=title, description=description, amount=amount)
 
-        books = get_books(id=created_book)
+        book_controller = BookController()
+        created_book = book_controller.create_book(title=title, description=description, amount=amount)
+
+        books = book_controller.get_books(id=created_book)
         show_book_option = ShowBookOption(data=books)
         show_book_option.run()

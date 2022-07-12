@@ -1,6 +1,6 @@
 from typing import List
 
-from app.controller.book_controller import get_books
+from app.controller.book_controller import BookController
 from views.options.option import Option
 from views.utils.console_output import ConsoleOutput
 
@@ -16,8 +16,9 @@ class ShowBookOption(Option):
         if self._data_books:
             self._show_books(books=self._data_books)
         else:
+            book_controller = BookController()
             if self._option == 'show_all_book':
-                books = get_books()
+                books = book_controller.get_books()
                 self._show_books(books=books)
 
     def _show_books(self, books: List[dict]) -> None:
