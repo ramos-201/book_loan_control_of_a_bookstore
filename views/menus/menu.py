@@ -26,17 +26,19 @@ class Menu:
             self._menu_options[menu_option - 1].run()
 
     def _show_menu_options(self) -> None:
-        ConsoleOutput(text=f"{self._description}").write()
+        ConsoleOutput(text=f'{self._description}').write()
+
         for i, value in enumerate(self._menu_options):
             ConsoleOutput(text=f'{i + 1} :  {value.description}').write()
 
     def _get_menu_option(self) -> int:
         while True:
             response_option = ConsoleInput(text='Write a menu option (int): ').read_int_is_positive()
+
             if response_option <= len(self._menu_options):
                 break
             else:
-                ConsoleOutput(text="Enter a valid value").write_error()
+                ConsoleOutput(text='Enter a valid value').write_error()
 
         return response_option
 

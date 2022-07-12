@@ -4,6 +4,7 @@ from app.model.book import Book
 
 
 class BookRepository:
+
     _books = []
 
     def insert(self, book: Book) -> None:
@@ -11,6 +12,7 @@ class BookRepository:
 
     def filter(self, data: dict) -> List[Book]:
         books = []
+
         for key, value in data.items():
             for book in self._books:
                 if book.__getattribute__(key) == value:

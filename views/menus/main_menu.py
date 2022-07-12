@@ -9,7 +9,7 @@ class MainMenu(Menu):
     _description = '..:: Main Menu ::..'
 
     def _get_menu_options(self) -> List[Option]:
-        self._exit_menu_option(description="Exit Menu")
+        self._exit_menu_option(description='Exit Menu')
         options = [
             BookMenuOption(),
             # TODO: Add menus (loan, client)
