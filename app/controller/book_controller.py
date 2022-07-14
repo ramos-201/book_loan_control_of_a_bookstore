@@ -14,13 +14,8 @@ class BookController:
 
         return book.id
 
-    def get_books(self, **kwargs) -> List[dict]:
-        if kwargs:
-            data_filter = {}
-
-            for key, value in kwargs.items():
-                data_filter[key] = value
-
+    def get_books(self, data_filter: dict = None) -> List[dict]:
+        if data_filter:
             books = self._book_repository.filter(data=data_filter)
             response_books = self._get_list_books(books=books)
         else:

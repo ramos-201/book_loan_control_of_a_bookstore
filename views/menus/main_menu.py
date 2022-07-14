@@ -6,6 +6,7 @@ from views.options.option import Option
 
 
 class MainMenu(Menu):
+
     _description = '..:: Main Menu ::..'
 
     def _get_menu_options(self) -> List[Option]:
