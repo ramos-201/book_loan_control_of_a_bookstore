@@ -7,4 +7,4 @@ class DeleteBookOption(Option):
         super().__init__(description='Delete Book')
 
     def run(self) -> None:
-        print(self._description)
+        pass

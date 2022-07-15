@@ -8,4 +8,4 @@ class UpdateBookOption(Option):
         self._option = option
 
     def run(self) -> None:
-        print(self._description, " : ", self._option)
+        pass

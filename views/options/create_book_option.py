@@ -1,9 +1,8 @@
 from app.controller.book_controller import BookController
 from views.options.option import Option
-from views.options.show_book_option import ShowBookOption
 from views.utils.console_input import ConsoleInput
 from views.utils.console_output import ConsoleOutput
-from views.utils.show_book_output import ShowBookOutput
+from views.utils.show_data import ShowData
 
 
 class CreateBookOption(Option):
@@ -21,4 +20,4 @@ class CreateBookOption(Option):
         book_controller = BookController()
         created_book = book_controller.create_book(title=title, description=description, amount=amount)
 
-        ShowBookOutput(text="Show Book").show_data_whit_filter(data_filter={"id": created_book})
+        ShowData(text="Show Book", data_filter={"id": created_book}).show_book_with_filter()

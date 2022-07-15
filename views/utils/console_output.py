@@ -6,14 +6,18 @@ class ConsoleOutput:
     def __init__(self, text: str):
         self._text = text
 
-    def write(self) -> None:
-        print(self._text)
+    def write(self, text: str = None) -> None:
+        if text:
+            self._text = text
+
+        if self._text is not None:
+            print(self._text)
 
     def write_error(self) -> None:
-        print(f'ERROR!: {self._text}')
+        self.write(text=f'ERROR!: {self._text}')
 
-    def write_list_dict(self, data: List[dict]) -> None:
+    def write_dict_list(self, data: List[dict]) -> None:
         self.write()
-        for d in data:
-            for k, v in d.items():
-                print(f'{k} : {v}')
+        for item in data:
+            for key, value in item.items():
+                self.write(text=f'{key} : {value}')
